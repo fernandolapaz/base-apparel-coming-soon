@@ -1,0 +1,222 @@
+:root {
+    --desaturatedRed: hsl(0, 36%, 70%);
+    --softRed: hsl(0, 93%, 68%);
+    --darkGrayishRed: hsl(0, 6%, 24%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    align-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+    background-image: url(images/bg5.jpg);
+    background-size: 100% 100%;
+}
+
+.card {
+    display: grid;
+    width: clamp(280px, 100%, 560px);
+    margin: auto;
+    background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    box-shadow: 0 25px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: grid;
+    align-items: center;
+    padding: 9%;
+}
+
+.logo img {
+    width: 33%;
+}
+
+.image-mobile img {
+    display: block;
+    width: 100%;
+}
+
+.text {
+    display: grid;
+    gap: 6%;
+    padding: 16% 8% 32% 8%;
+    text-align: center;
+}
+
+.text h1 {
+    text-transform: uppercase;
+    font-size: clamp(2rem, 11vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: 0.8rem;
+    color: var(--darkGrayishRed);
+}
+
+.text h1 span {
+    font-weight: 300;
+    color: var(--desaturatedRed);
+}
+
+.text p {
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--desaturatedRed);
+    margin-bottom: 1em;
+}
+
+.form .box {
+    position: relative;
+}
+
+.form .box input {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 4% 6%;
+    border: 1px solid var(--desaturatedRed);
+    border-radius: 2em;
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+::placeholder {
+    color: var(--desaturatedRed);
+}
+
+.form .box input:focus {
+    opacity: 1;
+}
+
+.form .box button {
+    position: absolute;
+    top: -1%;
+    right: 0;
+    width: 23%;
+    height: 102%;
+    border: none;
+    border-radius: 3em;
+    background-image: linear-gradient(to right, var(--desaturatedRed), var(--softRed));
+    box-shadow: 0 10px 25px var(--desaturatedRed);
+    cursor: pointer;
+}
+
+.form .box button:hover {
+    background-image: none;
+    background-color: hsl(0, 80%, 86%);
+}
+
+.form .box .error-icon {
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    height: 40%;
+    visibility: hidden;
+}
+
+.form .box .message {
+    position: absolute;
+    top: 120%;
+    left: 6%;
+    font-weight: 600;
+    color: var(--softRed);
+    visibility: hidden;
+}
+
+.form .box.error input {
+    border: 2px solid var(--softRed);
+    opacity: 1;
+}
+
+.form .box.error .error-icon {
+    visibility: visible;
+}
+
+.form .box.error .message {
+    visibility: visible;
+}
+
+.form .box.success input {
+    border: 2px solid lightgray;
+    opacity: 1;
+}
+
+.form .box.success .message {
+    visibility: visible;
+    color: #aba;
+    font-size: 0.8rem;
+}
+
+.image-desktop {
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+
+    .card {
+        width: min(98%, 1440px);
+        grid-template-columns: 6fr 4.4fr;
+        grid-template-areas:
+            "logo img"
+            "text img";
+        background-color: hsl(0, 99%, 99%);
+        background-image: url(images/bg-pattern-desktop.svg);
+        background-size: contain;
+    }
+
+    .image-mobile {
+        display: none;
+    }
+
+    .image-desktop {
+        grid-area: img;
+        display: block;
+    }
+
+    .image-desktop img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo {
+        grid-area: logo;
+        padding: 4% 20%;
+    }
+
+    .text {
+        grid-area: text;
+        padding: 6% 26% 16% 20%;
+        text-align: left;
+        gap: 0;
+    }
+
+    .text h1 {
+        font-size: clamp(2.5rem, 4.2vw, 4rem);
+        letter-spacing: 1.1rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--desaturatedRed);
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    color: #ddd;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.attribution a {
+    color: hsl(200, 45%, 44%);
+    text-decoration: none;
+}
